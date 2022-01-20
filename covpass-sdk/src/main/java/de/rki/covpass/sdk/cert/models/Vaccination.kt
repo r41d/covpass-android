@@ -10,6 +10,7 @@ import kotlinx.serialization.Contextual
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import java.time.LocalDate
+import java.util.HashMap
 
 /**
  * Enum to mark the type of a [Vaccination].
@@ -83,4 +84,8 @@ public data class Vaccination(
         private const val ASTRAZENECA = "EU/1/21/1529"
         private const val JANSSEN = "EU/1/20/1525"
     }
+
+    var mapping: HashMap<String, String> =
+        hashMapOf(BIONTECH to "Biontech", MODERNA to "Moderna", ASTRAZENECA to "AstraZeneca", JANSSEN to "Johnson")
+
 }
