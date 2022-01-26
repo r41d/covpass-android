@@ -66,6 +66,7 @@ public data class Vaccination(
         // or if is a booster vaccination
         // or 1/1 after Recovery
         get() =
+            !(product == JANSSEN && doseNumber == 1) &&
             (isComplete && occurrence?.isOlderThan(days = 14) == true) || isBooster || hasFullProtectionAfterRecovery
 
     public val validDate: LocalDate?
