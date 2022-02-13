@@ -149,8 +149,9 @@ internal class CovPassCheckQRScannerFragment :
         findNavigator().push(
             ValidationResultSuccessNav(
                 certificate.fullName,
-                certificate.fullTransliteratedName,
-                formatDateFromString(certificate.birthDateFormatted)
+                certificate.vaccinationDetails,
+                formatDateFromString(certificate.birthDateFormatted),
+                certificate.vaccination?.isBooster
             )
         )
     }
