@@ -97,6 +97,7 @@
 	<string name="accessibility_scan_camera_torch_on">Switch on torch</string>
 	<string name="accessibility_scan_camera_torch_off">Switch off torch</string>
 	<string name="validation_check_popup_valid_vaccination_recovery_title">Certificate valid*</string>
+	<string name="validation_check_popup_valid_booster_vaccination_recovery_title">Certificate valid* (boostered!)</string>
 	<string name="validation_check_popup_valid_vaccination_recovery_message">Check the following data against an ID document from the person you are checking.</string>
 	<string name="validation_check_popup_valid_vaccination_date_of_birth">Born on %s</string>
 	<string name="validation_check_popup_valid_vaccination_recovery_note">* Person has recovery or vaccination certificate.</string>

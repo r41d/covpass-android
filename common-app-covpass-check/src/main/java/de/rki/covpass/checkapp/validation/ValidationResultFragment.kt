@@ -118,8 +118,9 @@ internal abstract class ValidationResultFragment : BaseBottomSheet() {
 @Parcelize
 internal class ValidationResultSuccessNav(
     val name: String,
-    val transliteratedName: String,
+    val vaccinationDetails: String,
     val birthDate: String,
+    val booster: Boolean?,
 ) : FragmentNav(ValidationResultSuccessFragment::class)
 
 /**
@@ -128,7 +129,10 @@ internal class ValidationResultSuccessNav(
 internal class ValidationResultSuccessFragment : ValidationResultFragment() {
     private val args: ValidationResultSuccessNav by lazy { getArgs() }
     override val title by lazy {
-        getString(R.string.validation_check_popup_valid_vaccination_recovery_title)
+        if (args.booster == true)
+            getString(R.string.validation_check_popup_valid_booster_vaccination_recovery_title)
+        else
+            getString(R.string.validation_check_popup_valid_vaccination_recovery_title)
     }
     override val text by lazy {
         getString(R.string.validation_check_popup_valid_vaccination_recovery_message)
@@ -136,7 +140,7 @@ internal class ValidationResultSuccessFragment : ValidationResultFragment() {
     override val imageRes = R.drawable.result_success_image
 
     override val titleInfo1 by lazy { args.name }
-    override val subtitleInfo1 by lazy { args.transliteratedName }
+    override val subtitleInfo1 by lazy { args.vaccinationDetails }
     override val textInfo1 by lazy {
         getString(R.string.validation_check_popup_valid_vaccination_date_of_birth, args.birthDate)
     }

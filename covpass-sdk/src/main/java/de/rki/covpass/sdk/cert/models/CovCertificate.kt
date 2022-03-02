@@ -115,6 +115,19 @@ public data class CovCertificate(
         }
     }
 
+    public val vaccinationDetails: String by lazy {
+        if (vaccination != null) {
+            listOfNotNull(
+                vaccination!!.mapping.get(vaccination!!.product),
+                "("+vaccination!!.occurrence+")",
+                "${vaccination!!.doseNumber}/${vaccination!!.totalSerialDoses}",
+                "Booster:", if (vaccination!!.isBooster) "✓" else "✗"
+            ).joinToString(" ")
+        } else {
+            "nope"
+        }
+    }
+
     public val validDate: LocalDate?
         get() = vaccination?.validDate
 
